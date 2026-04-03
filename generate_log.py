@@ -6,7 +6,8 @@ def get_git_log():
     """Read real git log and convert to JSON for the website"""
     
     result = subprocess.run(
-        ['git', 'log', '--pretty=format:%h|%an|%ae|%ad|%s', '--date=format:%Y-%m-%d %H:%M:%S', '--name-only'],
+        ['git', 'log', '--pretty=format:%h|%an|%ae|%ad|%s', 
+         '--date=format:%Y-%m-%d %H:%M:%S', '--name-only'],
         capture_output=True, text=True
     )
     
@@ -17,7 +18,7 @@ def get_git_log():
     while i < len(lines):
         line = lines[i].strip()
         if '|' in line:
-            parts  = line.split('|')
+            parts = line.split('|')
             if len(parts) >= 5:
                 commit_id = parts[0]
                 author    = parts[1]
@@ -25,7 +26,6 @@ def get_git_log():
                 date      = parts[3]
                 message   = parts[4]
 
-                # Collect changed files
                 files = []
                 i += 1
                 while i < len(lines) and lines[i].strip() and '|' not in lines[i]:
@@ -35,6 +35,15 @@ def get_git_log():
                 if not files:
                     files = ['(no files listed)']
 
+                # Determine status from commit message
+                msg_lower = message.lower()
+                if 'add' in msg_lower or 'create' in msg_lower or 'initial' in msg_lower:
+                    status = 'added'
+                elif 'delete' in msg_lower or 'remove' in msg_lower:
+                    status = 'deleted'
+                else:
+                    status = 'modified'
+
                 commits.append({
                     'id':      commit_id,
                     'author':  author,
@@ -42,7 +51,7 @@ def get_git_log():
                     'date':    date,
                     'message': message,
                     'files':   files,
-                    'status':  'modified'
+                    'status':  status
                 })
         else:
             i += 1
@@ -57,16 +66,26 @@ def generate_report():
         json.dump(commits, f, indent=2)
     
     print(f"✅ Report generated! Found {len(commits)} commits.")
-    print("📄 Saved to git_log.json")
+    print(f"📄 Saved to git_log.json")
+    print(f"🕐 Generated at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
-    # Print summary
+    # Print detailed summary
     print("\n--- Audit Summary ---")
     authors = {}
     for c in commits:
         authors[c['author']] = authors.get(c['author'], 0) + 1
     
     for author, count in authors.items():
-        print(f"  {author}: {count} commits")
+        print(f"  👤 {author}: {count} commits")
+
+    print("\n--- File Summary ---")
+    files = {}
+    for c in commits:
+        for f in c['files']:
+            files[f] = files.get(f, 0) + 1
+    
+    for fname, count in files.items():
+        print(f"  📄 {fname}: {count} changes")
 
 if __name__ == '__main__':
     generate_report()
