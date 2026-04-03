@@ -1,5 +1,64 @@
 [
   {
+    "id": "aa033f6",
+    "author": "Yuvashreeparandhaman",
+    "email": "yuvashree.p2023a@vitstudent.ac.in",
+    "date": "2026-04-03 19:17:51",
+    "message": "Yuvashree - Improved footer styling and added copyright",
+    "files": [
+      "style.css"
+    ],
+    "status": "modified"
+  },
+  {
+    "id": "5425018",
+    "author": "Yuvashreeparandhaman",
+    "email": "yuvashree.p2023a@vitstudent.ac.in",
+    "date": "2026-04-03 19:13:16",
+    "message": "Yuvashree - Added project description to README",
+    "files": [
+      "README.md"
+    ],
+    "status": "modified"
+  },
+  {
+    "id": "9c7c039",
+    "author": "Yuvashreeparandhaman",
+    "email": "yuvashree.p2023a@vitstudent.ac.in",
+    "date": "2026-04-03 19:08:16",
+    "message": "Yuvashree - Improved footer styling and added copyright",
+    "files": [
+      "index.html",
+      "style.css"
+    ],
+    "status": "modified"
+  },
+  {
+    "id": "2558b70",
+    "author": "Yuvashreeparandhaman",
+    "email": "yuvashree.p2023a@vitstudent.ac.in",
+    "date": "2026-04-03 19:02:29",
+    "message": "Yuvashree - Added test cases and database schema to CI table",
+    "files": [
+      "index.html"
+    ],
+    "status": "modified"
+  },
+  {
+    "id": "bde733e",
+    "author": "kamalikaramesh892-cyber",
+    "email": "kamalikaramesh892@gmail.com",
+    "date": "2026-04-03 16:12:08",
+    "message": "Upgraded website with CI table, audit results and change control",
+    "files": [
+      ".gitignore",
+      "git_log.json",
+      "index.html",
+      "style.css"
+    ],
+    "status": "modified"
+  },
+  {
     "id": "2ce5810",
     "author": "Kamalika",
     "email": "kamalika@gmail.com",

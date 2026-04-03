@@ -65,28 +65,66 @@ function buildStatusTable() {
   const tbody   = document.getElementById('status-body');
   const fileMap = {};
 
+  // CI type mapping
+  const ciTypes = {
+    'index.html':       'Source Code',
+    'style.css':        'Source Code',
+    'script.js':        'Source Code',
+    'generate_log.py':  'Build Script',
+    'README.md':        'Documentation',
+    'git_log.json':     'Documentation',
+    '.gitignore':       'Config File'
+  };
+
   auditData.forEach(commit => {
     commit.files.forEach(file => {
       if (!fileMap[file]) {
-        fileMap[file] = { lastAuthor: '', lastDate: '', version: 0, changes: 0 };
+        fileMap[file] = {
+          lastAuthor: '',
+          lastDate:   '',
+          major:      1,
+          minor:      0,
+          changes:    0
+        };
       }
       fileMap[file].lastAuthor = commit.author;
       fileMap[file].lastDate   = commit.date;
-      fileMap[file].version   += 1;
       fileMap[file].changes   += 1;
+
+      // Version logic: every 3 small changes = major bump
+      fileMap[file].minor += 1;
+      if (fileMap[file].minor > 2) {
+        fileMap[file].major += 1;
+        fileMap[file].minor  = 0;
+      }
     });
   });
 
   tbody.innerHTML = '';
   Object.entries(fileMap).forEach(([file, info]) => {
+    const ciType  = ciTypes[file] || 'Other';
+    const version = `v${info.major}.${info.minor}`;
+
+    // State logic
+    let state     = 'Stable';
+    let stateBadge = 'badge-stable';
+    if (info.changes === 1) {
+      state      = 'Baseline';
+      stateBadge = 'badge-source';
+    } else if (info.changes >= 3) {
+      state      = 'Modified';
+      stateBadge = 'badge-modified';
+    }
+
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td>${file}</td>
       <td>${info.lastAuthor}</td>
       <td>${info.lastDate}</td>
-      <td>v${info.version}.0</td>
+      <td>${version}</td>
       <td>${info.changes}</td>
-      <td><span class="badge badge-stable">Stable</span></td>
+      <td><span class="badge badge-doc">${ciType}</span></td>
+      <td><span class="badge ${stateBadge}">${state}</span></td>
     `;
     tbody.appendChild(tr);
   });
