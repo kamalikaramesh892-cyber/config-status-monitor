@@ -1,0 +1,261 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f0f2f5;
+  color: #1a1a2e;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  color: white;
+  padding: 24px 40px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+
+.header-top h1 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.header-top .subtitle {
+  font-size: 13px;
+  color: #a0aec0;
+  margin-top: 4px;
+}
+
+nav {
+  margin-top: 16px;
+  display: flex;
+  gap: 4px;
+}
+
+nav a {
+  color: #a0aec0;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 8px 8px 0 0;
+  transition: all 0.2s;
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+/* SECTIONS */
+section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+section h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #1a1a2e;
+  border-left: 4px solid #0f3460;
+  padding-left: 12px;
+}
+
+/* DASHBOARD CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  border-top: 4px solid #0f3460;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.card-number {
+  font-size: 40px;
+  font-weight: 700;
+  color: #0f3460;
+}
+
+.card-label {
+  font-size: 13px;
+  color: #718096;
+  margin-top: 6px;
+  text-align: center;
+}
+
+/* TABLE CONTROLS */
+.table-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.table-controls input,
+.table-controls select {
+  padding: 10px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  background: white;
+}
+
+.table-controls input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.table-controls input:focus,
+.table-controls select:focus {
+  border-color: #0f3460;
+}
+
+/* TABLES */
+.table-wrapper {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+thead {
+  background: #1a1a2e;
+  color: white;
+}
+
+thead th {
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #f0f2f5;
+  transition: background 0.15s;
+}
+
+tbody tr:hover {
+  background: #f7fafc;
+}
+
+tbody td {
+  padding: 12px 16px;
+  vertical-align: middle;
+}
+
+.commit-id {
+  font-family: monospace;
+  background: #edf2f7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #0f3460;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge-added    { background: #c6f6d5; color: #276749; }
+.badge-modified { background: #bee3f8; color: #2a69ac; }
+.badge-deleted  { background: #fed7d7; color: #9b2c2c; }
+.badge-stable   { background: #e9d8fd; color: #553c9a; }
+
+/* CONTRIBUTOR CARDS */
+.contributor-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.contributor-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.contributor-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0f3460, #533483);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 auto 12px;
+}
+
+.contributor-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.contributor-email {
+  font-size: 12px;
+  color: #718096;
+  margin-top: 4px;
+}
+
+.contributor-commits {
+  margin-top: 12px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f3460;
+}
+
+.contributor-commits-label {
+  font-size: 12px;
+  color: #718096;
+}
+
+/* FOOTER */
+footer {
+  background: #1a1a2e;
+  color: #a0aec0;
+  text-align: center;
+  padding: 24px;
+  font-size: 13px;
+  margin-top: 60px;
+  line-height: 2;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Configuration Audit & Status Accounting System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-top">
+      <h1>⚙️ Configuration Audit & Status Accounting System</h1>
+      <p class="subtitle">ISWE403L – Software Configuration Management | VIT</p>
+    </div>
+    <nav>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#audit">Audit Log</a>
+      <a href="#status">Status Accounting</a>
+      <a href="#contributors">Contributors</a>
+    </nav>
+  </header>
+
+  <!-- DASHBOARD -->
+  <section id="dashboard">
+    <h2>📊 Dashboard</h2>
+    <div class="cards">
+      <div class="card" id="card-commits">
+        <span class="card-number" id="total-commits">0</span>
+        <span class="card-label">Total Commits</span>
+      </div>
+      <div class="card" id="card-contributors">
+        <span class="card-number" id="total-contributors">0</span>
+        <span class="card-label">Contributors</span>
+      </div>
+      <div class="card" id="card-files">
+        <span class="card-number" id="total-files">0</span>
+        <span class="card-label">Files Tracked</span>
+      </div>
+      <div class="card" id="card-audits">
+        <span class="card-number" id="total-audits">0</span>
+        <span class="card-label">Audit Events</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUDIT LOG -->
+  <section id="audit">
+    <h2>📋 Audit Log — Who Changed What & When</h2>
+    <div class="table-controls">
+      <input type="text" id="search" placeholder="🔍 Search by name, file or message..." />
+      <select id="filter-author">
+        <option value="">All Contributors</option>
+      </select>
+    </div>
+    <div class="table-wrapper">
+      <table id="audit-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Commit ID</th>
+            <th>Author</th>
+            <th>Date & Time</th>
+            <th>Message</th>
+            <th>Files Changed</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="audit-body">
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- STATUS ACCOUNTING -->
+  <section id="status">
+    <h2>📁 Status Accounting — Current File States</h2>
+    <div class="table-wrapper">
+      <table id="status-table">
+        <thead>
+          <tr>
+            <th>File Name</th>
+            <th>Last Modified By</th>
+            <th>Last Modified Date</th>
+            <th>Version</th>
+            <th>Total Changes</th>
+            <th>State</th>
+          </tr>
+        </thead>
+        <tbody id="status-body">
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CONTRIBUTORS -->
+  <section id="contributors">
+    <h2>👥 Contributors</h2>
+    <div class="contributor-cards" id="contributor-cards">
+    </div>
+  </section>
+
+  <footer>
+    <p>Configuration Audit & Status Accounting System &copy; 2025 | VIT – ISWE403L</p>
+    <p>Built by Kamali & Yuvashree</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
