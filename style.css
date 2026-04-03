@@ -14,96 +14,118 @@ body {
 header {
   background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
   color: white;
-  padding: 24px 40px 0;
+  padding: 20px 40px 0;
   position: sticky;
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 20px rgba(0,0,0,0.3);
 }
 
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-icon {
+  font-size: 32px;
+}
+
 .header-top h1 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
-  letter-spacing: 0.5px;
 }
 
 .header-top .subtitle {
-  font-size: 13px;
+  font-size: 12px;
   color: #a0aec0;
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
 nav {
-  margin-top: 16px;
+  margin-top: 14px;
   display: flex;
-  gap: 4px;
+  gap: 2px;
+  flex-wrap: wrap;
 }
 
 nav a {
   color: #a0aec0;
   text-decoration: none;
-  padding: 10px 20px;
-  font-size: 14px;
+  padding: 9px 16px;
+  font-size: 13px;
   border-radius: 8px 8px 0 0;
   transition: all 0.2s;
 }
 
 nav a:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.12);
   color: white;
 }
 
 /* SECTIONS */
 section {
   max-width: 1200px;
-  margin: 40px auto;
+  margin: 36px auto;
   padding: 0 24px;
 }
 
-section h2 {
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 20px;
   color: #1a1a2e;
   border-left: 4px solid #0f3460;
   padding-left: 12px;
 }
 
+.section-badge {
+  background: #e8edf5;
+  color: #0f3460;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+
 /* DASHBOARD CARDS */
 .cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
 }
 
 .card {
   background: white;
   border-radius: 12px;
-  padding: 24px;
+  padding: 20px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-  border-top: 4px solid #0f3460;
+  border-top: 4px solid #ccc;
   transition: transform 0.2s;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-}
-
-.card-number {
-  font-size: 40px;
-  font-weight: 700;
-  color: #0f3460;
-}
-
-.card-label {
-  font-size: 13px;
-  color: #718096;
-  margin-top: 6px;
   text-align: center;
 }
+
+.card:hover { transform: translateY(-4px); }
+.card.blue   { border-top-color: #3b82f6; }
+.card.green  { border-top-color: #10b981; }
+.card.purple { border-top-color: #8b5cf6; }
+.card.orange { border-top-color: #f59e0b; }
+.card.teal   { border-top-color: #06b6d4; }
+.card.red    { border-top-color: #ef4444; }
+
+.card-icon   { font-size: 24px; margin-bottom: 8px; }
+.card-number { font-size: 36px; font-weight: 700; color: #0f3460; }
+.card-label  { font-size: 12px; color: #718096; margin-top: 4px; }
 
 /* TABLE CONTROLS */
 .table-controls {
@@ -123,15 +145,9 @@ section h2 {
   background: white;
 }
 
-.table-controls input {
-  flex: 1;
-  min-width: 200px;
-}
-
+.table-controls input { flex: 1; min-width: 200px; }
 .table-controls input:focus,
-.table-controls select:focus {
-  border-color: #0f3460;
-}
+.table-controls select:focus { border-color: #0f3460; }
 
 /* TABLES */
 .table-wrapper {
@@ -158,7 +174,6 @@ thead th {
   text-align: left;
   font-weight: 500;
   font-size: 13px;
-  letter-spacing: 0.3px;
 }
 
 tbody tr {
@@ -166,9 +181,7 @@ tbody tr {
   transition: background 0.15s;
 }
 
-tbody tr:hover {
-  background: #f7fafc;
-}
+tbody tr:hover { background: #f7fafc; }
 
 tbody td {
   padding: 12px 16px;
@@ -184,6 +197,7 @@ tbody td {
   color: #0f3460;
 }
 
+/* BADGES */
 .badge {
   padding: 4px 10px;
   border-radius: 20px;
@@ -195,6 +209,58 @@ tbody td {
 .badge-modified { background: #bee3f8; color: #2a69ac; }
 .badge-deleted  { background: #fed7d7; color: #9b2c2c; }
 .badge-stable   { background: #e9d8fd; color: #553c9a; }
+.badge-modified-state { background: #fef3c7; color: #92400e; }
+.badge-source   { background: #dbeafe; color: #1e40af; }
+.badge-build    { background: #fef3c7; color: #92400e; }
+.badge-doc      { background: #d1fae5; color: #065f46; }
+.badge-pass     { background: #c6f6d5; color: #276749; }
+.badge-fail     { background: #fed7d7; color: #9b2c2c; }
+.badge-fca      { background: #dbeafe; color: #1e40af; }
+.badge-pca      { background: #e9d8fd; color: #553c9a; }
+.badge-scm      { background: #fef3c7; color: #92400e; }
+
+/* CHANGE CONTROL */
+.change-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.change-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  border-top: 4px solid #0f3460;
+  text-align: center;
+}
+
+.change-step {
+  width: 40px;
+  height: 40px;
+  background: #0f3460;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 auto 12px;
+}
+
+.change-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+}
+
+.change-desc {
+  font-size: 13px;
+  color: #718096;
+  line-height: 1.6;
+}
 
 /* CONTRIBUTOR CARDS */
 .contributor-cards {
@@ -206,9 +272,10 @@ tbody td {
 .contributor-card {
   background: white;
   border-radius: 12px;
-  padding: 24px;
+  padding: 28px 24px;
   text-align: center;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  border-top: 4px solid #0f3460;
 }
 
 .contributor-avatar {
@@ -222,40 +289,35 @@ tbody td {
   color: white;
   font-size: 24px;
   font-weight: 700;
-  margin: 0 auto 12px;
+  margin: 0 auto 14px;
 }
 
-.contributor-name {
-  font-size: 16px;
-  font-weight: 600;
-  color: #1a1a2e;
-}
-
-.contributor-email {
-  font-size: 12px;
-  color: #718096;
-  margin-top: 4px;
-}
-
-.contributor-commits {
-  margin-top: 12px;
-  font-size: 28px;
-  font-weight: 700;
-  color: #0f3460;
-}
-
-.contributor-commits-label {
-  font-size: 12px;
-  color: #718096;
-}
+.contributor-name   { font-size: 16px; font-weight: 600; color: #1a1a2e; }
+.contributor-email  { font-size: 12px; color: #718096; margin-top: 4px; }
+.contributor-commits { margin-top: 16px; font-size: 32px; font-weight: 700; color: #0f3460; }
+.contributor-commits-label { font-size: 12px; color: #718096; }
 
 /* FOOTER */
 footer {
   background: #1a1a2e;
   color: #a0aec0;
   text-align: center;
-  padding: 24px;
+  padding: 28px;
   font-size: 13px;
   margin-top: 60px;
   line-height: 2;
+}
+
+.footer-content strong { color: white; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .cards        { grid-template-columns: repeat(3, 1fr); }
+  .change-grid  { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .cards        { grid-template-columns: repeat(2, 1fr); }
+  .change-grid  { grid-template-columns: 1fr; }
+  header        { padding: 16px 16px 0; }
 }

@@ -10,43 +10,150 @@
 
   <header>
     <div class="header-top">
-      <h1>⚙️ Configuration Audit & Status Accounting System</h1>
-      <p class="subtitle">ISWE403L – Software Configuration Management | VIT</p>
+      <div class="logo-area">
+        <span class="logo-icon">⚙️</span>
+        <div>
+          <h1>Configuration Audit & Status Accounting System</h1>
+          <p class="subtitle">ISWE403L – Software Configuration Management | VIT | M.Tech SE – Winter 2025-26</p>
+        </div>
+      </div>
     </div>
     <nav>
-      <a href="#dashboard">Dashboard</a>
-      <a href="#audit">Audit Log</a>
-      <a href="#status">Status Accounting</a>
-      <a href="#contributors">Contributors</a>
+      <a href="#dashboard">📊 Dashboard</a>
+      <a href="#ci">📦 Config Items</a>
+      <a href="#audit">📋 Audit Log</a>
+      <a href="#fca">🔍 Audit Results</a>
+      <a href="#status">📁 Status</a>
+      <a href="#change">🔄 Change Control</a>
+      <a href="#contributors">👥 Contributors</a>
     </nav>
   </header>
 
   <!-- DASHBOARD -->
   <section id="dashboard">
-    <h2>📊 Dashboard</h2>
+    <div class="section-header">
+      <h2>📊 Dashboard</h2>
+      <span class="section-badge">Overview</span>
+    </div>
     <div class="cards">
-      <div class="card" id="card-commits">
+      <div class="card blue">
+        <span class="card-icon">📝</span>
         <span class="card-number" id="total-commits">0</span>
         <span class="card-label">Total Commits</span>
       </div>
-      <div class="card" id="card-contributors">
+      <div class="card green">
+        <span class="card-icon">👥</span>
         <span class="card-number" id="total-contributors">0</span>
         <span class="card-label">Contributors</span>
       </div>
-      <div class="card" id="card-files">
+      <div class="card purple">
+        <span class="card-icon">📁</span>
         <span class="card-number" id="total-files">0</span>
         <span class="card-label">Files Tracked</span>
       </div>
-      <div class="card" id="card-audits">
+      <div class="card orange">
+        <span class="card-icon">🔍</span>
         <span class="card-number" id="total-audits">0</span>
         <span class="card-label">Audit Events</span>
       </div>
+      <div class="card teal">
+        <span class="card-icon">✅</span>
+        <span class="card-number" id="total-pass">10</span>
+        <span class="card-label">Audits Passed</span>
+      </div>
+      <div class="card red">
+        <span class="card-icon">❌</span>
+        <span class="card-number" id="total-fail">0</span>
+        <span class="card-label">Audits Failed</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIGURATION ITEMS -->
+  <section id="ci">
+    <div class="section-header">
+      <h2>📦 Configuration Items (CIs)</h2>
+      <span class="section-badge">SCM Plan</span>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>CI Name</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Owner</th>
+            <th>Version</th>
+            <th>State</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>📄 index.html</td>
+            <td><span class="badge badge-source">Source Code</span></td>
+            <td>Main website UI file</td>
+            <td>Kamali</td>
+            <td>v1.0</td>
+            <td><span class="badge badge-stable">Stable</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>🎨 style.css</td>
+            <td><span class="badge badge-source">Source Code</span></td>
+            <td>Website styling and layout</td>
+            <td>Kamali</td>
+            <td>v1.0</td>
+            <td><span class="badge badge-stable">Stable</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>⚡ script.js</td>
+            <td><span class="badge badge-source">Source Code</span></td>
+            <td>Frontend logic and data rendering</td>
+            <td>Yuvashree</td>
+            <td>v1.0</td>
+            <td><span class="badge badge-stable">Stable</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>🐍 generate_log.py</td>
+            <td><span class="badge badge-build">Build Script</span></td>
+            <td>Python script to generate audit report</td>
+            <td>Kamali</td>
+            <td>v1.0</td>
+            <td><span class="badge badge-stable">Stable</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>📋 README.md</td>
+            <td><span class="badge badge-doc">Documentation</span></td>
+            <td>Project overview and setup guide</td>
+            <td>Kamali</td>
+            <td>v1.0</td>
+            <td><span class="badge badge-stable">Stable</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>📊 git_log.json</td>
+            <td><span class="badge badge-doc">Documentation</span></td>
+            <td>Auto-generated audit data file</td>
+            <td>System</td>
+            <td>v1.0</td>
+            <td><span class="badge badge-modified">Auto-Generated</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
 
   <!-- AUDIT LOG -->
   <section id="audit">
-    <h2>📋 Audit Log — Who Changed What & When</h2>
+    <div class="section-header">
+      <h2>📋 Audit Log — Who Changed What & When</h2>
+      <span class="section-badge">Version Control</span>
+    </div>
     <div class="table-controls">
       <input type="text" id="search" placeholder="🔍 Search by name, file or message..." />
       <select id="filter-author">
@@ -72,9 +179,94 @@
     </div>
   </section>
 
+  <!-- CONFIGURATION AUDIT RESULTS -->
+  <section id="fca">
+    <div class="section-header">
+      <h2>🔍 Configuration Audit Results (FCA + PCA + SCM)</h2>
+      <span class="section-badge">Audit Results</span>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Audit Type</th>
+            <th>Item</th>
+            <th>Description</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge badge-fca">FCA</span></td>
+            <td>README.md</td>
+            <td>Project documentation exists and is complete</td>
+            <td><span class="badge badge-pass">✅ PASS</span></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-fca">FCA</span></td>
+            <td>index.html</td>
+            <td>Main source file matches functional requirements</td>
+            <td><span class="badge badge-pass">✅ PASS</span></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-fca">FCA</span></td>
+            <td>style.css</td>
+            <td>Styling file present and linked correctly</td>
+            <td><span class="badge badge-pass">✅ PASS</span></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-pca">PCA</span></td>
+            <td>script.js</td>
+            <td>Physical file exists in repository</td>
+            <td><span class="badge badge-pass">✅ PASS</span></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-pca">PCA</span></td>
+            <td>generate_log.py</td>
+            <td>Build script physically present and executable</td>
+            <td><span class="badge badge-pass">✅ PASS</span></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-pca">PCA</span></td>
+            <td>git_log.json</td>
+            <td>Auto-generated audit file produced successfully</td>
+            <td><span class="badge badge-pass">✅ PASS</span></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-pca">PCA</span></td>
+            <td>README.md</td>
+            <td>Documentation physically verified in repository</td>
+            <td><span class="badge badge-pass">✅ PASS</span></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-scm">SCM</span></td>
+            <td>Git baseline</td>
+            <td>Repository initialized with proper baseline</td>
+            <td><span class="badge badge-pass">✅ PASS</span></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-scm">SCM</span></td>
+            <td>Multiple contributors</td>
+            <td>Both Kamali and Yuvashree have committed</td>
+            <td><span class="badge badge-pass">✅ PASS</span></td>
+          </tr>
+          <tr>
+            <td><span class="badge badge-scm">SCM</span></td>
+            <td>CIs registered</td>
+            <td>All configuration items tracked in system</td>
+            <td><span class="badge badge-pass">✅ PASS</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
   <!-- STATUS ACCOUNTING -->
   <section id="status">
-    <h2>📁 Status Accounting — Current File States</h2>
+    <div class="section-header">
+      <h2>📁 Status Accounting — Current File States</h2>
+      <span class="section-badge">Status Report</span>
+    </div>
     <div class="table-wrapper">
       <table id="status-table">
         <thead>
@@ -84,6 +276,7 @@
             <th>Last Modified Date</th>
             <th>Version</th>
             <th>Total Changes</th>
+            <th>CI Type</th>
             <th>State</th>
           </tr>
         </thead>
@@ -93,16 +286,52 @@
     </div>
   </section>
 
+  <!-- CHANGE CONTROL -->
+  <section id="change">
+    <div class="section-header">
+      <h2>🔄 Change Control Process</h2>
+      <span class="section-badge">Change Management</span>
+    </div>
+    <div class="change-grid">
+      <div class="change-card">
+        <div class="change-step">1</div>
+        <div class="change-title">Change Request</div>
+        <div class="change-desc">Developer identifies need for change and creates a new branch or commit with clear message describing the change</div>
+      </div>
+      <div class="change-card">
+        <div class="change-step">2</div>
+        <div class="change-title">Code Review</div>
+        <div class="change-desc">Collaborator reviews the change on GitHub, checks for errors and ensures it meets project requirements</div>
+      </div>
+      <div class="change-card">
+        <div class="change-step">3</div>
+        <div class="change-title">Approval & Merge</div>
+        <div class="change-desc">Change is approved and merged into main branch. Git tracks the exact time, author and files changed</div>
+      </div>
+      <div class="change-card">
+        <div class="change-step">4</div>
+        <div class="change-title">Audit Update</div>
+        <div class="change-desc">Python script is run to regenerate audit log. Website is updated to reflect latest configuration status</div>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTRIBUTORS -->
   <section id="contributors">
-    <h2>👥 Contributors</h2>
+    <div class="section-header">
+      <h2>👥 Contributors</h2>
+      <span class="section-badge">Team</span>
+    </div>
     <div class="contributor-cards" id="contributor-cards">
     </div>
   </section>
 
   <footer>
-    <p>Configuration Audit & Status Accounting System &copy; 2025 | VIT – ISWE403L</p>
-    <p>Built by Kamali & Yuvashree</p>
+    <div class="footer-content">
+      <p>⚙️ <strong>Configuration Audit & Status Accounting System</strong></p>
+      <p>ISWE403L – Software Configuration Management | VIT | M.Tech SE – Winter 2025-26</p>
+      <p style="margin-top:8px;">Built by <strong>Kamali & Yuvashree</strong> | Tools: Git · Python · GitHub · VS Code</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
