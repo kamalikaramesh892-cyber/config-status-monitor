@@ -34,11 +34,19 @@ function buildDashboard() {
   const authors = [...new Set(auditData.map(d => d.author))];
   const files   = [...new Set(auditData.flatMap(d => d.files))];
 
+  // Count PASS and FAIL automatically from the audit table
+  const allBadges = document.querySelectorAll('.badge-pass');
+  const allFails  = document.querySelectorAll('.badge-fail');
+
   document.getElementById('total-commits').textContent      = auditData.length;
   document.getElementById('total-contributors').textContent = authors.length;
   document.getElementById('total-files').textContent        = files.length;
   document.getElementById('total-audits').textContent       = auditData.length;
+  document.getElementById('total-pass').textContent         = allBadges.length;
+  document.getElementById('total-fail').textContent         = allFails.length;
 }
+
+
 
 // ── Build audit log table ───────────────────────────────
 function buildAuditTable(data) {
