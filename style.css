@@ -309,6 +309,23 @@ footer {
 }
 
 .footer-content strong { color: white; }
+.footer-content p:last-child {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: #718096;
+  font-size: 12px;
+}
+
+.footer-content a {
+  color: #63b3ed;
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  color: white;
+  text-decoration: underline;
+}
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
